@@ -1,5 +1,6 @@
 async function main() {
-
+//compiler them in our code
+//compile them separately
 }
 
 main()
