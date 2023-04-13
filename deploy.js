@@ -23,7 +23,6 @@ async function main() {
   const contract = await contractFactory.deploy(); //await?
   //  -- only to be used in async function --> stop here! wait for contract to be deployed
   //  -- then continue
-  console.log(contract);
 }
 
 main()
