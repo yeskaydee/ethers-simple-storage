@@ -23,7 +23,8 @@ async function main() {
   const contract = await contractFactory.deploy(); //await?
   //  -- only to be used in async function --> stop here! wait for contract to be deployed
   //  -- then continue
-  const transactionReceipt = await contract.deployTransaction.wait(1); // 1 block confirmation // is what you get when you wait for a block confirmation
+  // const transactionReceipt = await contract.deployTransaction.wait(1); // 1 block confirmation // is what you get when you wait for a block confirmation
+  await contract.deployTransaction.wait(1);
   // console.log("Here is the deployment transaction(transaction response): ");
   // console.log(contract.deployTransaction)
   // console.log("Here is the transaction receipt: ");
@@ -43,6 +44,14 @@ async function main() {
   // const sentTxResponse = await wallet.sendTransaction(tx);
   // await sentTxResponse.wait(1);
   // console.log(sentTxResponse);
+
+  const currentFavoutiteNumber = await contract.retrieve();
+  console.log(`Current Fav no is --> : ${currentFavoutiteNumber.toString()}`);
+
+  const transactionResponse = await contract.store("10"); //better practice to store as a string, ether js is smart enough to convert it to a number
+  const transactionReceipt =await transactionResponse.wait(1);
+  const updatedFavoriteNumber = await contract.retrieve();
+  console.log(`updatedFavoriteNumber is --> : ${updatedFavoriteNumber.toString()}`);
 }
 
 main()
