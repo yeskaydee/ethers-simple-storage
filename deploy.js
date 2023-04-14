@@ -55,9 +55,11 @@ async function main() {
   // await sentTxResponse.wait(1);
   // console.log(sentTxResponse);
 
+    console.log(`Contract deployed to address: ${contract.address}`);
+
+
   const currentFavoutiteNumber = await contract.retrieve();
   console.log(`Current Fav no is --> : ${currentFavoutiteNumber.toString()}`);
-
   const transactionResponse = await contract.store("10"); //better practice to store as a string, ether js is smart enough to convert it to a number
   const transactionReceipt =await transactionResponse.wait(1);
   const updatedFavoriteNumber = await contract.retrieve();
