@@ -3,3 +3,4 @@ package.json
 yarn.lock
 SimpleStorage_sol_SimpleStorage.bin
 SimpleStorage_sol_SimpleStorage.abi
+.encryptedKey.json
